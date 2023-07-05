@@ -103,7 +103,7 @@
                                 <div class="icon">
                                     <i class="fa-solid fa-mountain-city"></i>
                                 </div>
-                                <h3>Áreas de trabajo</h3>
+                                <h3>Diseño de información</h3>
                                 <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
                                 <a href="service-details.html" class="readmore stretched-link">Learn more <i class="bi bi-arrow-right"></i></a>
                             </div>
@@ -115,7 +115,7 @@
                                 <div class="icon">
                                     <i class="fa-solid fa-arrow-up-from-ground-water"></i>
                                 </div>
-                                <h3>Proyectos de diseño</h3>
+                                <h3>Diseño editorial</h3>
                                 <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
                                 <a href="service-details.html" class="readmore stretched-link">Learn more <i class="bi bi-arrow-right"></i></a>
                             </div>
@@ -127,7 +127,7 @@
                                 <div class="icon">
                                     <i class="fa-solid fa-compass-drafting"></i>
                                 </div>
-                                <h3>Mundo creativo</h3>
+                                <h3>Ilustraciones</h3>
                                 <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
                                 <a href="service-details.html" class="readmore stretched-link">Learn more <i class="bi bi-arrow-right"></i></a>
                             </div>
@@ -140,6 +140,22 @@
         </main>
         <!-- End #main -->
 
+        <!-- Portfolio-->
+        <section class="content-section" id="portfolio">
+            <div class="container px-4 px-lg-5">
+                <div class="content-section-heading text-center">
+                    <h3 class="text-secondary mb-0">Portafolio</h3>
+                    <h2 class="mb-5">Proyectos recientes</h2>
+                </div>
+            </div>
+
+        <!-- Los trabajos JSon-->
+        <section class="border-top border-bottom" id="losTrabajos">
+            <div class="container py-5">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" id="trabajos"></div>
+            </div>
+        </section>
+        
         <!-- ======= Footer ======= -->
         <footer id="footer " class="footer">
             <div class="footer-content position-relative">
@@ -181,6 +197,32 @@
             </div>
         </footer>
         <!-- End Footer -->
+
+        <!-- Lo que sigue es JavaScript a secas-->
+        <script>
+            async function portfolio() {
+                const consulta = await fetch("https://raw.githubusercontent.com/florenciavildosolae/dnm-clase07/main/datos.json");
+                const data = await consulta.json();
+                var donde = document.querySelector("#trabajos");
+                data.forEach(function (t, i) {
+                    donde.innerHTML +=
+                        '<article class="col"><div class="card h-100 shadow-sm ' +
+                        t.soporte +
+                        '"><img src="' +
+                        t.fotos[0] +
+                        '" class="card-img-top"><div class="card-body"><h3 class="fs-5"><a href="single.html?nro=' +
+                        i +
+                        '" class="link-secondary">' +
+                        t.nombre +
+                        "</a></h3><p>" +
+                        t.abstract +
+                        "</p><small>#" +
+                        t.soporte +
+                        "</small></div></div></article>";
+                });
+            }
+            portfolio().catch((error) => console.error(error));
+        </script>
 
         <a href="# " class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
