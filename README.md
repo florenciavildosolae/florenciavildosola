@@ -1,6 +1,4 @@
-# florenciavildosola
-
-# florenciavildosola.com
+# florenciavildosola.cl
 
 ## ¿Para qué es esta propuesta?
 #### Exponer mi trabajo y habilidades creativas en diseño.
